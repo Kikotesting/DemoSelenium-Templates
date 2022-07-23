@@ -8,10 +8,12 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.HomePage;
 
 public class BaseSetup {
 
     public  WebDriver driver;
+    protected HomePage homePage;
 
     @BeforeAll
     static void beforeAllTests(){
@@ -21,6 +23,7 @@ public class BaseSetup {
     void beforeEachTest() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        homePage = new HomePage(driver);
         // Test on mobile
         // driver.manage().window().setSize(new Dimension(385,812));
         driver.get("https://the-internet.herokuapp.com/");
