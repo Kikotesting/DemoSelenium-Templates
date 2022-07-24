@@ -1,7 +1,6 @@
 package login;
 
 import base.baseConfig;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.HomePage;
@@ -16,7 +15,6 @@ public class LoginTests extends baseConfig {
     LoginPage loginPage;
     SecureAreaPage secureAreaPage;
 
-
     @Test
     @DisplayName("Login with valid credentials!")
     public void testSuccessfulLogin(){
@@ -24,7 +22,7 @@ public class LoginTests extends baseConfig {
         loginPage = new LoginPage(driver);
         secureAreaPage = new SecureAreaPage(driver);
 
-        homePage.clickMenu(homePage.formAuthenticationPage);
+        homePage.formAuthenticationPage.click();
         loginPage.setUsername("tomsmith");
         loginPage.setPassword("SuperSecretPassword!");
         loginPage.clickLoginButton();
