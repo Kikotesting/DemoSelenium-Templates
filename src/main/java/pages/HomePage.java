@@ -1,6 +1,4 @@
 package pages;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,10 +14,6 @@ public class HomePage {
 
     @FindBy(linkText = "Form Authentication") public WebElement formAuthenticationPage;
     @FindBy(linkText = "Dropdown") public WebElement dropdownPage;
-
-    public void clickMenu(WebElement menu){
-        menu.click();
-    }
-
+    @FindBy(linkText = "Forgot Password") public WebElement forgotPasswordPage;
 
 }
