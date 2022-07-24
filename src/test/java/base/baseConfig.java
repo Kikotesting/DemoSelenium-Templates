@@ -8,30 +8,23 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.HomePage;
 
-public class BaseSetup {
-
-    public  WebDriver driver;
-    protected HomePage homePage;
+public class baseConfig {
+    public WebDriver driver;
+    public JavascriptExecutor j = (JavascriptExecutor) driver;
 
     @BeforeAll
     static void beforeAllTests(){
         WebDriverManager.chromedriver().setup();
     }
     @BeforeEach
-    void beforeEachTest() {
+    void beforeEachTest(){
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        homePage = new HomePage(driver);
-        // Test on mobile
-        // driver.manage().window().setSize(new Dimension(385,812));
         driver.get("https://the-internet.herokuapp.com/");
-        System.out.println(driver.getTitle());
     }
-    // Clear cookies and Kill the browser after finish the test
     @AfterEach
-    void afterEach() {
+    void afterEachTests(){
         driver.manage().deleteAllCookies();
         driver.quit();
     }
@@ -49,5 +42,4 @@ public class BaseSetup {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
     }
-
 }
