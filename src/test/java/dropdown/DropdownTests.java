@@ -1,26 +1,34 @@
-/*
 package dropdown;
 
-import base.BaseSetup;
+import base.baseConfig;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import pages.DropdownPage;
 import pages.HomePage;
 
-public class DropdownTests extends BaseSetup {
+public class DropdownTests extends baseConfig {
+
+    HomePage homePage;
+    DropdownPage dropdownPage;
+
 
     @Test
-    public void testSelectOption(){
-        DropdownPage dropdownPage = new DropdownPage(driver);
-        HomePage homePage1 = new HomePage(driver);
-        homePage1.clickDropdown();
+    @DisplayName("Verify Select option")
+    public void checkSelectedOption() throws InterruptedException {
+        homePage = new HomePage(driver);
+        homePage.clickMenu(homePage.dropdownPage);
 
-        String option = "Option 1";
-        dropdownPage.selectFromDropdown(option);
+        dropdownPage = new DropdownPage(driver);
+        dropdownPage.clickSelectMenu();
+        dropdownPage.selectOption();
 
-        var selectedOptions = dropdownPage.getSelectedOption();
-
-        assertEquals(selectedOptions.size(),1,"Incorrect number of selections");
-        assertTrue(selectedOptions.contains(option),"Option is not selected!");
+        Assertions.assertTrue(dropdownPage.actualSelectedValue()
+                .contains("Option 1"),
+                "Is not the selected Option!");
     }
+
 }
-*/

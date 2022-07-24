@@ -15,7 +15,7 @@ public class HomePage {
     }
 
     @FindBy(linkText = "Form Authentication") public WebElement formAuthenticationPage;
-    @FindBy(linkText = "Dropdown") public WebElement dropdownMenu;
+    @FindBy(linkText = "Dropdown") public WebElement dropdownPage;
 
     public void clickMenu(WebElement menu){
         menu.click();

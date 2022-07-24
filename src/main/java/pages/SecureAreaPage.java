@@ -14,7 +14,7 @@ public class SecureAreaPage {
         PageFactory.initElements(driver,this);
     }
 
-    public void actualTextForLoggedUser(){
-        statusAlert.getText();
+    public String actualTextForLoggedUser(){
+        return statusAlert.getText();
     }
 }
