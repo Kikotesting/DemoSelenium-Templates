@@ -15,5 +15,7 @@ public class HomePage {
     @FindBy(linkText = "Form Authentication") public WebElement formAuthenticationPage;
     @FindBy(linkText = "Dropdown") public WebElement dropdownPage;
     @FindBy(linkText = "Forgot Password") public WebElement forgotPasswordPage;
+    @FindBy(linkText = "Infinite Scroll") public WebElement infiniteScrollPage;
+    @FindBy(linkText = "JavaScript Alerts") public WebElement JSAlertsPage;
 
 }
