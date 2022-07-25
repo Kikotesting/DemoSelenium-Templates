@@ -15,9 +15,11 @@ public class JSAlertPage {
     }
 
     @FindBy(xpath = "//*[@id=\"content\"]/div/ul/li[1]/button") public WebElement jsAlertBtn;
-    @FindBy(id = "result") public WebElement resultJsAlert;
+    @FindBy(id = "result") public WebElement alertTextResult;
     @FindBy(xpath = "//*[@id=\"content\"]/div/ul/li[2]/button") public WebElement jsConfirmBtn;
+    @FindBy(xpath = "//*[@id=\"result\"]") public WebElement confirmTextResult;
     @FindBy(xpath = "//*[@id=\"content\"]/div/ul/li[3]/button") public WebElement jsPromptBtn;
+    @FindBy(xpath = "//*[@id=\"result\"]") public WebElement promptTextResult;
 
 
     private Actions actionElement(){
@@ -29,12 +31,21 @@ public class JSAlertPage {
     public void acceptAlert(){
         driver.switchTo().alert().accept();
     }
+    public void dismissAlert(){
+        driver.switchTo().alert().dismiss();
+    }
     public void escapeAlert(){
         Actions action = new Actions(driver);
         action.sendKeys(Keys.ESCAPE).click();
     }
-    public String getAlertedText(){
-        return resultJsAlert.getText();
+    public String getAlertedText(WebElement element){
+        return element.getText();
+    }
+    public void setText(String text){
+        driver.switchTo().alert().sendKeys(text);
+    }
+    public String getValidatedMessage(WebElement setMessage){
+        return setMessage.getText();
     }
 
 }
