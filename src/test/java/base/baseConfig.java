@@ -21,11 +21,11 @@ public class baseConfig {
     void beforeEachTest(){
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
         driver.get("https://the-internet.herokuapp.com/");
     }
     @AfterEach
     void afterEachTests(){
-        driver.manage().deleteAllCookies();
         driver.quit();
     }
 
