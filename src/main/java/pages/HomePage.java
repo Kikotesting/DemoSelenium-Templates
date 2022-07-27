@@ -19,4 +19,5 @@ public class HomePage {
     @FindBy(linkText = "JavaScript Alerts") public WebElement JSAlertsPage;
     @FindBy(linkText = "Shifting Content") public WebElement shiftingPage;
 
+
 }
