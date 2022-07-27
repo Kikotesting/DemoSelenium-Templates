@@ -18,6 +18,7 @@ public class HomePage {
     @FindBy(linkText = "Infinite Scroll") public WebElement infiniteScrollPage;
     @FindBy(linkText = "JavaScript Alerts") public WebElement JSAlertsPage;
     @FindBy(linkText = "Shifting Content") public WebElement shiftingPage;
+    @FindBy(linkText = "Hovers") public WebElement hoversPage;
 
 
 }
