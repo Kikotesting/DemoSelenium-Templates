@@ -16,11 +16,10 @@ public class HoverTests extends baseConfig {
     @DisplayName("Hovers elements")
     public void testHoverUser1() throws InterruptedException {
         homePage = new HomePage(driver);
-
-        var caption = hoversPage.hoverOverFigure(1);
+        hoversPage = new HoversPage(driver);
 
         homePage.hoversPage.click();
-
+        var caption = hoversPage.hoverOverFigure(1);
 
         Assertions.assertTrue(caption.isCaptionDisplayed(), "Caption not displayed");
         Assertions.assertEquals(caption.getTitle(), "name: user1", "Caption title incorrect");
