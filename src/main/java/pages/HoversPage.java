@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class HoversPage {
@@ -36,7 +37,6 @@ public class HoversPage {
         public String getTitle(){
             return caption.findElement(By.tagName("h5")).getText();
         }
-
         public String getLink(){
             return caption.findElement(By.tagName("a")).getAttribute("href");
         }

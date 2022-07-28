@@ -11,7 +11,6 @@ public class HoverTests extends baseConfig {
     HomePage homePage;
     HoversPage hoversPage;
 
-
     @Test
     @DisplayName("Hovers elements")
     public void testHoverUser1() throws InterruptedException {
@@ -24,8 +23,7 @@ public class HoverTests extends baseConfig {
         Assertions.assertTrue(caption.isCaptionDisplayed(), "Caption not displayed");
         Assertions.assertEquals(caption.getTitle(), "name: user1", "Caption title incorrect");
         Assertions.assertEquals(caption.getLinkText(), "View profile", "Caption link text incorrect");
-        Assertions.assertEquals(caption.getLink().endsWith("/users/1"), "Link incorrect");
-
+        Assertions.assertEquals(caption.getLink().endsWith("/users/1"), true);
     }
 
 }
