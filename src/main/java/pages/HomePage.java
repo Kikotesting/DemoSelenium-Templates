@@ -20,7 +20,9 @@ public class HomePage {
     @FindBy(linkText = "Shifting Content") public WebElement shiftingPage;
     @FindBy(linkText = "Hovers") public WebElement hoversPage;
     @FindBy(linkText = "Key Presses") public WebElement keyPage;
-    @FindBy(linkText = "Key Presses") public WebElement sliderPage;
+    @FindBy(linkText = "Horizontal Slider") public WebElement sliderPage;
+
+    @FindBy(linkText = "Dynamic Loading") public WebElement dynamicLoadingPage;
 
 
 }

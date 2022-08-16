@@ -4,16 +4,16 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import javax.annotation.Nullable;
 import java.time.Duration;
 import java.util.function.Function;
+
+import static java.time.Duration.ofMillis;
 
 public class baseConfig {
     public WebDriver driver;
@@ -35,13 +35,8 @@ public class baseConfig {
         driver.quit();
     }
 
-    /**
-     * Swipe,
-     * @param startPercentage
-     * @param endPercentage
-     * @param anchorPercentage
-     */
-    /*public void horizontalSwipeByPercentage(double startPercentage, double endPercentage, double anchorPercentage) {
+
+/*    public void horizontalSwipeByPercentage(double startPercentage, double endPercentage, double anchorPercentage) {
         Dimension size = driver.manage().window().getSize();
         int anchor = (int) (size.height * anchorPercentage);
         int startPoint = (int) (size.width * startPercentage);
@@ -51,7 +46,17 @@ public class baseConfig {
                 .waitAction(waitOptions(ofMillis(1000)))
                 .moveTo(point(endPoint, anchor))
                 .release().perform();
-    }
+    }*/
+
+/*
+    /**
+     * Swipe,
+     * @param startPercentage
+     * @param endPercentage
+     * @param anchorPercentage
+     */
+
+    /**
     public void verticalSwipeByPercentages(double startPercentage, double endPercentage, double anchorPercentage) {
         Dimension size = driver.manage().window().getSize();
         int anchor = (int) (size.width * anchorPercentage);
@@ -72,7 +77,7 @@ public class baseConfig {
     }*/
 
     // Current screen contains text
-/*    public boolean containsText(String text) {
+/*        public boolean containsText(String text) {
         for (MobileElement el : driver.findElements(By.name("kiko"))) {
             if (el.getText().contains(text)) {
                 return true;
@@ -566,25 +571,6 @@ public class baseConfig {
             return testList;
         }
     }*/
-
-    public class TestGroups {
-        public static final String SINGLE_DEVICE = "single_device";
-        public static final String TWO_DEVICES = "two_devices";
-        public static final String THREE_DEVICES = "three_devices";
-        // four_devices group can only be used in combination with secure_os group due to the number of devices
-        public static final String FOUR_DEVICES = "four_devices";
-        public static final String FIVE_DEVICES = "five_devices";
-        public static final String SIX_DEVICES = "six_devices";
-        public static final String MOCK_TESTS = "mock_tests";
-        public static final String TEAR_DOWN_TESTS = "tear_down_tests";
-        public static final String SET_UP_TESTS = "set_up_tests";
-        public static final String STRESS_TESTS = "stress_tests";
-        public static final String SECURE_OS = "secure_os";
-        public static final String SAMSUNG = "samsung";
-        public static final String HIGH_RISK = "high_risk";
-        public static final String EMULATORS = "emulators";
-        public static final String NOT_IMPLEMENTED = "not_implemented";
-    }
 
 
     /**

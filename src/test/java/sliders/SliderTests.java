@@ -4,6 +4,7 @@ import base.baseConfig;
 import dev.failsafe.internal.util.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Dimension;
 import pages.HomePage;
 import pages.SliderPage;
 
@@ -13,12 +14,14 @@ public class SliderTests extends baseConfig {
     SliderPage sliderPage;
 
     @Test
-    public void testSlideToWholeNumber(){
+    public void testSlideToWholeNumber() throws InterruptedException {
         homePage = new HomePage(driver);
         sliderPage  = new SliderPage(driver);
+
         homePage.sliderPage.click();
-        sliderPage.setSliderValue(4);
-        // Assertions.assertEquals(sliderPage.getSliderValue(),4,"Slider value is incorrect");
+        sliderPage.moveSlider();
+
+
     }
 
 }
