@@ -25,6 +25,9 @@ public class HomePage {
     @FindBy(linkText = "Dynamic Loading") public WebElement dynamicLoadingPage;
     @FindBy(linkText = "Dynamic Controls") public WebElement dynamicControlsPage;
     @FindBy(linkText = "JavaScript Alerts") public WebElement alertsPage;
+    @FindBy(linkText = "File Upload") public WebElement fileUploadPage;
+    @FindBy(linkText = "Context Menu") public WebElement contextMenuPage;
+    @FindBy(linkText = "Entry Ad") public WebElement modalPage;
 
 
 }

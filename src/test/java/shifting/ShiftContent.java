@@ -13,7 +13,7 @@ public class ShiftContent extends baseConfig {
 
     @Test
     @DisplayName("Shifting text content in Menus")
-    public void performShiftingContent() throws InterruptedException {
+    void performShiftingContent() throws InterruptedException {
 
         homePage = new HomePage(driver);
         shiftingPage = new ShiftingPage(driver);

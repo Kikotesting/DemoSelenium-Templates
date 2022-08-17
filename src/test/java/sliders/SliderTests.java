@@ -12,7 +12,7 @@ public class SliderTests extends baseConfig {
     SliderPage sliderPage;
 
     @Test
-    public void testSlideToWholeNumber() throws InterruptedException {
+    void testSlideToWholeNumber() throws InterruptedException {
         homePage = new HomePage(driver);
         sliderPage  = new SliderPage(driver);
 
