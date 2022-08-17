@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import pages.AlertsPage;
 import pages.HomePage;
 
+import java.time.Duration;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AlertTestsNew extends baseConfig {
@@ -27,8 +29,8 @@ public class AlertTestsNew extends baseConfig {
     }
 
     @Test
-    @DisplayName("Get text from Alert")
-    public void getTextFromAlert() {
+    @DisplayName("Get text from Alert and Dismiss")
+    public void getTextFromAlert() throws InterruptedException {
         homePage = new HomePage(driver);
         alertsPage = new AlertsPage(driver);
 
@@ -36,9 +38,13 @@ public class AlertTestsNew extends baseConfig {
         alertsPage.triggerConfirm();
 
         String text = alertsPage.alert_getText();
-        alertsPage.alert_clickDismiss();
-
         assertEquals(text, "I am a JS Confirm", "Alert text incorrect");
+
+        alertsPage.alert_clickDismiss();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        String actualResult = alertsPage.getResult();
+        Assertions.assertEquals("You clicked: Cancel",actualResult);
+
     }
 
     @Test
