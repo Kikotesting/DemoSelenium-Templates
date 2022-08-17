@@ -23,6 +23,7 @@ public class HomePage {
     @FindBy(linkText = "Horizontal Slider") public WebElement sliderPage;
 
     @FindBy(linkText = "Dynamic Loading") public WebElement dynamicLoadingPage;
+    @FindBy(linkText = "Dynamic Controls") public WebElement dynamicControlsPage;
 
 
 }

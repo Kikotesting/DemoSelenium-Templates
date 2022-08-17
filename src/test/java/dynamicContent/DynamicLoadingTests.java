@@ -20,8 +20,9 @@ public class DynamicLoadingTests extends baseConfig {
     DynamicLoadingPage dynamicLoadingPage;
 
     @Test
-    @DisplayName("Dynamic contents")
+    @DisplayName("Dynamic loading element")
     void dynamicTest(){
+        //Explicit wait
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         homePage = new HomePage(driver);
