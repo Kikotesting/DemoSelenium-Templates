@@ -24,6 +24,7 @@ public class HomePage {
 
     @FindBy(linkText = "Dynamic Loading") public WebElement dynamicLoadingPage;
     @FindBy(linkText = "Dynamic Controls") public WebElement dynamicControlsPage;
+    @FindBy(linkText = "JavaScript Alerts") public WebElement alertsPage;
 
 
 }
