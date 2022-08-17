@@ -14,8 +14,10 @@ public class DynamicLoadingPage {
     }
 
     @FindBy(linkText = "Example 1: Element on page that is hidden") WebElement example1;
+    @FindBy(id = "finish") public WebElement finishWord;
     @FindBy(xpath = "//*[@id=\"start\"]/button") WebElement startButton;
     @FindBy(linkText = "Example 2: Element rendered after the fact") WebElement example2;
+
 
 
     public void clickExample1(){

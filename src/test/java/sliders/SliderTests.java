@@ -1,10 +1,8 @@
 package sliders;
 
 import base.baseConfig;
-import dev.failsafe.internal.util.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.Dimension;
 import pages.HomePage;
 import pages.SliderPage;
 
@@ -18,9 +16,10 @@ public class SliderTests extends baseConfig {
         homePage = new HomePage(driver);
         sliderPage  = new SliderPage(driver);
 
+        String value = "4";
         homePage.sliderPage.click();
-        sliderPage.moveSlider();
-
+        sliderPage.setSliderValue(value);
+        Assertions.assertEquals(sliderPage.getSliderValue(),value,"Slider value is incorrect");
 
     }
 

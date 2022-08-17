@@ -47,18 +47,27 @@ public class DynamicControlsTest extends baseConfig {
                         driver.findElement(By.xpath("//*[@id=\"message\"]"));
             }
         });
-        String expectFinalMessage = "It's gone!";
-        Assertions.assertEquals(expectFinalMessage.trim(), dynamicControlsPage.getActualMessage().trim());
+        Assertions.assertEquals(finalMessage.getText(), dynamicControlsPage.getActualMessage().trim());
+        System.out.println("First test passed");
 
+        dynamicControlsPage.clickRemoveButton();
+        WebElement finalTwoMessage = wait.until(new Function<WebDriver,WebElement>(){
+            public WebElement apply(WebDriver driver){
+                return
+                        driver.findElement(By.xpath("//*[@id=\"message\"]"));
+            }
+        });
+        Assertions.assertEquals(finalTwoMessage.getText(), dynamicControlsPage.getActualMessage().trim());
 
-
-
-
-
-
-
-
-
+        WebElement checkedBoxAfter = wait.until(new Function<WebDriver,WebElement>(){
+            public WebElement apply(WebDriver driver){
+                return
+                        driver.findElement(By.xpath("//*[@id=\"checkbox\"]/input"));
+            }
+        });
+        checkedBoxAfter.isDisplayed();
+        checkedBoxAfter.isSelected();
+        System.out.println("Second test passed");
 
 
     }

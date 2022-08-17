@@ -24,7 +24,6 @@ public class DynamicLoadingTests extends baseConfig {
     void dynamicTest(){
         //Explicit wait
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
         homePage = new HomePage(driver);
         homePage.dynamicLoadingPage.click();
 
