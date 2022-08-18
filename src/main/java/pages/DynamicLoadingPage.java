@@ -1,9 +1,14 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class DynamicLoadingPage {
     private WebDriver driver;
@@ -27,8 +32,17 @@ public class DynamicLoadingPage {
         startButton.click();
     }
 
+    public void clickStartButtonTwo(){
+        startButton.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("finish")));
+    }
+
     public void clickExample2(){
         example2.click();
+    }
+    public boolean isStartButtonTwoDisplayed(){
+        return startButton.isDisplayed();
     }
 
     public String actualTextForFoundText(WebElement element){
