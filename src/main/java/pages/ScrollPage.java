@@ -13,6 +13,7 @@ public class ScrollPage {
         PageFactory.initElements(driver,this);
     }
     @FindBy(id = "username") private WebElement usernameField;
+    @FindBy(id = "large-table") public WebElement table;
 
 
     // SCROLLING elements
@@ -28,5 +29,6 @@ public class ScrollPage {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
     }
+
 
 }

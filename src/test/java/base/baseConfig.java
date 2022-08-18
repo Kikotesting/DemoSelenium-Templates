@@ -315,24 +315,8 @@ public class baseConfig {
                 .perform();
     }
 
-    public void waitText(String textToBeDisplayed) {
-        waitForVisibilityOf(By.xpath("//*[@text='" + textToBeDisplayed + "']"));
-    }
-
     public void waitText(String textToBeDisplayed, int timeOutInSecond) {
         waitForVisibilityOf(By.xpath("//*[@text='" + textToBeDisplayed + "']"), timeOutInSecond);
-    }
-
-    public boolean isAndroidNavigationUpButtonPresent() {
-        return !driver.findElements(By.xpath(ANDROID_NAVIGATION_UP_BUTTON)).isEmpty();
-    }
-
-    public boolean isElementEnabled(WebElement element) {
-        return Boolean.parseBoolean(element.getAttribute("enabled"));
-    }
-
-    public boolean isElementChecked(WebElement element) {
-        return Boolean.parseBoolean(element.getAttribute("checked"));
     }
 
     public void fillWithData(WebElement element, String data) {
@@ -458,10 +442,6 @@ public class baseConfig {
                 .moveTo(PointOption.point(sourcePoint))
                 .release()
                 .perform();
-    }
-
-    public WebElement getProgressView() {
-        return progressView;
     }
 
     public void slideElementFromLeftToRight(WebElement element) {

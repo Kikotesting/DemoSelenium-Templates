@@ -29,6 +29,8 @@ public class HomePage {
     @FindBy(linkText = "Context Menu") public WebElement contextMenuPage;
     @FindBy(linkText = "Entry Ad") public WebElement modalPage;
     @FindBy(linkText = "WYSIWYG Editor") public WebElement framesPage;
+    @FindBy(linkText = "Large & Deep DOM") public WebElement scrollPage;
+    @FindBy(linkText = "Infinite Scroll") public WebElement infinityPage;
 
 
 
