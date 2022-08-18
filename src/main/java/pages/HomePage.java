@@ -28,6 +28,9 @@ public class HomePage {
     @FindBy(linkText = "File Upload") public WebElement fileUploadPage;
     @FindBy(linkText = "Context Menu") public WebElement contextMenuPage;
     @FindBy(linkText = "Entry Ad") public WebElement modalPage;
+    @FindBy(linkText = "WYSIWYG Editor") public WebElement framesPage;
+
+
 
 
 }
