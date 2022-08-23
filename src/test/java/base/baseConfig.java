@@ -6,12 +6,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.time.Duration;
 
 public class baseConfig {
     public WebDriver driver;
-    public JavascriptExecutor j = (JavascriptExecutor) driver;
 
     @BeforeAll
     static void beforeAllTests(){
@@ -20,6 +20,7 @@ public class baseConfig {
     @BeforeEach
     void beforeEachTest(){
         driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
         driver.get("https://the-internet.herokuapp.com/");
     }
@@ -29,17 +30,8 @@ public class baseConfig {
         driver.quit();
     }
 
-    // SCROLLING elements
-    public void scrollToPixels(int pixels) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,arguments[0])",pixels);
-    }
-    public void scrollToWebElement(WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView();",element);
-    }
-    public void scrollEndPage() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
-    }
+
+
+
+
 }

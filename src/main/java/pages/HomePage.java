@@ -4,16 +4,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
+public class HomePage extends BasePage{
 
     private WebDriver driver;
     public HomePage(WebDriver driver){
-        this.driver = driver;
+        super(driver);
         PageFactory.initElements(driver,this);
     }
 
-    @FindBy(linkText = "Form Authentication") public WebElement formAuthenticationPage;
-    @FindBy(linkText = "Dropdown") public WebElement dropdownPage;
-    @FindBy(linkText = "Forgot Password") public WebElement forgotPasswordPage;
+    @FindBy(linkText = "Infinite Scroll") public WebElement InfinityScrollPage;
+
 
 }
