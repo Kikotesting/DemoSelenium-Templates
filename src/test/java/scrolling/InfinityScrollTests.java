@@ -16,7 +16,7 @@ public class InfinityScrollTests extends baseConfig {
         infinityPageScroll = new InfinityPageScroll(driver);
 
         homePage.infinityPage.click();
-        infinityPageScroll.scrollToParagraph(5);
+        infinityPageScroll.scrollToParagraph(10);
     }
 
 }

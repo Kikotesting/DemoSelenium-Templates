@@ -14,17 +14,27 @@ public class InfinityPageScroll {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-    private By textBlocks = By.id("large-table");
 
+    private By textBlocks = By.className("jscroll-added");
+
+
+
+    public void scrollToParagraph(int index){
+        String script = "window.scrollTo(0,document.body.scrollHeight)";
+        var jsExecutor = (JavascriptExecutor) driver;
+
+        while (getNumberOfParagraphsPresent() < index){
+            jsExecutor.executeScript(script);
+        }
+    }
     private int getNumberOfParagraphsPresent(){
         return driver.findElements(textBlocks).size();
     }
-    public void scrollToParagraph(int index){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
 
-        while(getNumberOfParagraphsPresent() < index){
-            js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-        }
-    }
+
+
+
+
+
 
 }
