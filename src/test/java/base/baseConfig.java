@@ -1,6 +1,7 @@
 package base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -10,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import utils.WindowManager;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 
 
@@ -32,16 +34,22 @@ public class baseConfig {
 
 
     @AfterEach
-    void afterEachTests(){
+    void afterEachTests() throws IOException {
         takeScreenshot();
         driver.quit();
     }
-    void takeScreenshot(){
+    void takeScreenshot() throws IOException {
         var camera = (TakesScreenshot)driver;
         File screenshot = camera.getScreenshotAs(OutputType.FILE);
 
+        File pathScreenshot = new File(screenshot.getAbsolutePath());
+        File pathProject = new File("/home/sg-qa/Documents/WebUItesting/DemoProjectSelenium/resources");
+
         System.out.println("Screenshot taken: "+screenshot.getAbsolutePath());
+        FileUtils.copyFile(pathScreenshot,pathProject);
     }
+
+
 
 
 
