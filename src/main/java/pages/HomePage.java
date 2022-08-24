@@ -31,6 +31,7 @@ public class HomePage {
     @FindBy(linkText = "WYSIWYG Editor") public WebElement framesPage;
     @FindBy(linkText = "Large & Deep DOM") public WebElement scrollPage;
     @FindBy(linkText = "Infinite Scroll") public WebElement infinityPage;
+    @FindBy(linkText = "Multiple Windows") public WebElement MultipleWindowsPage;
 
 
 

@@ -3,6 +3,7 @@ package keypresses;
 import base.baseConfig;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.openqa.selenium.Keys;
 import pages.HomePage;
 import pages.KeyPage;

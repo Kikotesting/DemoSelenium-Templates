@@ -1,14 +1,20 @@
 package base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import utils.WindowManager;
+
+import java.io.File;
+import java.nio.file.Files;
+
 
 public class baseConfig {
+
     public WebDriver driver;
     public JavascriptExecutor j = (JavascriptExecutor) driver;
 
@@ -23,10 +29,32 @@ public class baseConfig {
         driver.manage().deleteAllCookies();
         driver.get("https://the-internet.herokuapp.com/");
     }
+
+
     @AfterEach
     void afterEachTests(){
+        takeScreenshot();
         driver.quit();
     }
+    void takeScreenshot(){
+        var camera = (TakesScreenshot)driver;
+        File screenshot = camera.getScreenshotAs(OutputType.FILE);
+
+        System.out.println("Screenshot taken: "+screenshot.getAbsolutePath());
+    }
+
+
+
+
+
+    // Import WindowManager class from utils package and use it on all tests
+    public WindowManager getWindowManager(){
+        return new WindowManager(driver);
+    }
+
+
+
+
 
 
 /*    public void horizontalSwipeByPercentage(double startPercentage, double endPercentage, double anchorPercentage) {
