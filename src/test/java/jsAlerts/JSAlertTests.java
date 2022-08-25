@@ -4,8 +4,15 @@ import base.baseConfig;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.HomePage;
 import pages.JSAlertPage;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.time.Duration;
 
 public class JSAlertTests extends baseConfig {
 
@@ -47,16 +54,17 @@ public class JSAlertTests extends baseConfig {
     }
     @Test
     @DisplayName("Escape JS Alert")
-    public void escapeJSAlert() throws InterruptedException {
+    public void escapeJSAlert() throws InterruptedException, AWTException {
         homePage = new HomePage(driver);
         jsAlertPage = new JSAlertPage(driver);
 
         homePage.JSAlertsPage.click();
-        //Escape
-        jsAlertPage.jsAlertBtn.click();
-        Thread.sleep(1000);
-        jsAlertPage.escapeAlert();
-        Thread.sleep(1000);
+        driver.switchTo().alert();
+        jsAlertPage.AlertClick.click();
+        jsAlertPage.newAction();
+
+
+
     }
 
     @Test

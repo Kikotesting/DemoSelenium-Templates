@@ -6,6 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.security.Key;
+import java.time.Duration;
 
 public class JSAlertPage {
     private WebDriver driver;
@@ -15,6 +20,8 @@ public class JSAlertPage {
     }
 
     @FindBy(xpath = "//*[@id=\"content\"]/div/ul/li[1]/button") public WebElement jsAlertBtn;
+    @FindBy(linkText = "Click for JS Alert") public WebElement AlertClick;
+
     @FindBy(id = "result") public WebElement alertTextResult;
     @FindBy(xpath = "//*[@id=\"content\"]/div/ul/li[2]/button") public WebElement jsConfirmBtn;
     @FindBy(xpath = "//*[@id=\"result\"]") public WebElement confirmTextResult;
@@ -31,13 +38,17 @@ public class JSAlertPage {
     public void acceptAlert(){
         driver.switchTo().alert().accept();
     }
+    public void newAction(){
+        Actions actions = new Actions(driver);
+       var kiko = driver.switchTo().alert();
+       actions.sendKeys(Keys.ESCAPE);
+       actions.build().perform();
+    }
+
     public void dismissAlert(){
         driver.switchTo().alert().dismiss();
     }
-    public void escapeAlert(){
-        Actions action = new Actions(driver);
-        action.sendKeys(Keys.ESCAPE).click();
-    }
+
     public String getAlertedText(WebElement element){
         return element.getText();
     }

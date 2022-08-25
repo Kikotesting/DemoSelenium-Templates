@@ -20,7 +20,6 @@ public class SliderTests extends baseConfig {
         homePage.sliderPage.click();
         sliderPage.setSliderValue(value);
         Assertions.assertEquals(sliderPage.getSliderValue(),value,"Slider value is incorrect");
-
     }
 
 }

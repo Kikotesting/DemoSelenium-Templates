@@ -6,18 +6,18 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+import utils.EventReporter;
 import utils.WindowManager;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 
 
 public class baseConfig {
 
-    public WebDriver driver;
+    public EventFiringWebDriver driver;
     public JavascriptExecutor j = (JavascriptExecutor) driver;
 
     @BeforeAll
@@ -26,7 +26,8 @@ public class baseConfig {
     }
     @BeforeEach
     void beforeEachTest(){
-        driver = new ChromeDriver();
+        driver = new EventFiringWebDriver(new ChromeDriver());
+        driver.register(new EventReporter());
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.get("https://the-internet.herokuapp.com/");
@@ -43,17 +44,12 @@ public class baseConfig {
         File screenshot = camera.getScreenshotAs(OutputType.FILE);
 
         File pathScreenshot = new File(screenshot.getAbsolutePath());
-        File pathProject = new File("/home/sg-qa/Documents/WebUItesting/DemoProjectSelenium/resources");
+        File pathProject = new File("resources/screenshots");
 
         System.out.println("Screenshot taken: "+screenshot.getAbsolutePath());
-        FileUtils.copyFile(pathScreenshot,pathProject);
+        FileUtils.copyFileToDirectory(pathScreenshot,pathProject);
+
     }
-
-
-
-
-
-
 
     // Import WindowManager class from utils package and use it on all tests
     public WindowManager getWindowManager(){
