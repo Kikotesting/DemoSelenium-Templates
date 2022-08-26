@@ -20,4 +20,5 @@ public class ForgotPasswordTests extends baseConfig {
         forgotPasswordPage.setEmail("test@mail.bg");
         forgotPasswordPage.clickRetrievePasswordButton();
     }
+
 }
