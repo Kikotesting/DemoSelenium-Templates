@@ -22,12 +22,13 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+    <!-- https://mvnrepository.com/artifact/com.applitools/eyes-selenium-java3 -->
     <dependency>
-      <groupId>io.github.bonigarcia</groupId>
-      <artifactId>webdrivermanager</artifactId>
-      <version>5.2.0</version>
+      <groupId>com.applitools</groupId>
+      <artifactId>eyes-selenium-java3</artifactId>
+      <version>5.0.0</version>
     </dependency>
+
 
     <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
     <dependency>
